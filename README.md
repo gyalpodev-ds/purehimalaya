@@ -1,2 +1,1 @@
-# purehimalaya
-online website
+Project Name: Pure Himalayan Herbal
