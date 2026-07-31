@@ -1,3 +1,3 @@
-Project Name: Pure Himalayan Herbal <br>
+Project Name: Pure Himalaya Herbal <br>
 Created by Pema Gyalpo Tamang<br>
 https://purehimalayaherbals.com.np
