@@ -1,0 +1,404 @@
+.slider-section {
+    position: relative;
+    /* Necessary to contain the overlay */
+    background-image: url('../images/mainbg.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* Remove min-height: 100vh if you've already set it */
+}
+
+/* This creates the dark, blurred overlay */
+.slider-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Adjust '0.6' to make it darker (closer to 1) or lighter (closer to 0) */
+    background-color: rgba(0, 0, 0, 0.4);
+
+    /* Adds the blur effect to the background image only */
+    backdrop-filter: blur(3px);
+
+    /* Ensures the overlay stays behind your slider items */
+    z-index: 0;
+}
+
+/* Ensure your slider content sits on top of the overlay */
+.slider-section>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* Chinese */
+
+.sliderc-section {
+    /* position: relative;
+    /* Necessary to contain the overlay */
+    /* background-image: url('../images/mainbg.png');
+    background-size: cover;
+    background-position: center;  */
+    /* background-attachment: fixed; */
+    /* Remove min-height: 100vh if you've already set it */
+}
+
+/* This creates the dark, blurred overlay */
+.sliderc-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Adjust '0.6' to make it darker (closer to 1) or lighter (closer to 0) */
+    background-color: rgba(0, 0, 0, 0.4);
+
+    /* Adds the blur effect to the background image only */
+    backdrop-filter: blur(3px);
+
+    /* Ensures the overlay stays behind your slider items */
+    z-index: 0;
+}
+
+/* Ensure your slider content sits on top of the overlay */
+.sliderc-section>* {
+    position: relative;
+    z-index: 1;
+}
+
+
+
+
+/* =========================================================
+   CENTER IMAGE
+========================================================= */
+.center-image {
+    position: absolute;
+    z-index: 5;
+
+    height: 100%;
+    width: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    pointer-events: none;
+    transform: translateZ(100px);
+}
+
+.center-image img {
+    height: 100%;
+    width: auto;
+
+    margin-top: 0;
+    padding-top: 30px;
+
+    object-fit: cover;
+    transition: 0.4s ease;
+}
+
+
+/* =========================================================
+   SLIDER SECTION (MAIN CONTAINERS)
+========================================================= */
+.slider-section,
+.sliderc-section {
+    margin-top: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-size: cover;
+    background-position: center;
+
+    transform-style: preserve-3d;
+}
+
+.sliderc-section {
+    overflow: visible;
+}
+
+
+/* =========================================================
+   3D SLIDER CONTAINER
+========================================================= */
+.slider1 {
+    position: relative;
+    margin-top: 200px;
+
+    width: 360px;
+    height: 260px;
+
+    transform-style: preserve-3d;
+    animation: rotate 60s linear infinite;
+
+    will-change: transform;
+    transition: transform 0.8s ease;
+}
+
+
+/* =========================================================
+   SLIDER ITEMS
+========================================================= */
+.slider1 span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    transform: rotateY(calc(var(--i) * 60deg)) translateZ(350px);
+
+    transition:
+        transform 0.4s ease,
+        filter 0.4s ease,
+        opacity 0.4s ease;
+}
+
+/* LINK WRAPPER */
+.slider1 span a {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* =========================================================
+   TEXT UNDER IMAGE
+========================================================= */
+.slider1 span p {
+    margin-top: 8px;
+
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: center;
+
+    color: black;
+
+    text-shadow: 0 2px 10px rgba(201, 134, 26, 0.8);
+    transition: all 0.4s ease;
+}
+
+
+/* =========================================================
+   IMAGE STYLE
+========================================================= */
+.slider1 span img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    padding: 0;
+
+    border-radius: 20px;
+    transition: all 0.4s ease;
+}
+
+
+/* =========================================================
+   HOVER EFFECTS
+========================================================= */
+.slider1 span:hover {
+    transform:
+        rotateY(calc(var(--i) * 60deg)) translateZ(420px) scale(1.1);
+}
+
+.slider1 span:hover img {
+    transform: scale(1.1);
+
+    box-shadow:
+        0 0 25px rgba(212, 175, 55, 0.7),
+        0 0 60px rgba(212, 175, 55, 0.5),
+        0 10px 30px rgba(0, 0, 0, 0.5);
+
+    border-color: gold;
+}
+
+.slider1 span:hover p {
+    transform: scale(1.2);
+    color: #ffffff;
+
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.9),
+        0 0 25px rgba(212, 175, 55, 0.8),
+        0 0 40px rgba(212, 175, 55, 0.6);
+}
+
+
+/* =========================================================
+   ROTATION ANIMATION
+========================================================= */
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(-360deg);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+/* ---------- TABLET ---------- */
+@media (max-width: 991px) {
+    .slider-section {
+        height: 60vh;
+    }
+
+    .slider1 {
+        width: 280px;
+        height: 170px;
+    }
+
+    .slider1 span {
+        transform: rotateY(calc(var(--i) * 60deg)) translateZ(300px);
+    }
+
+    .slider1 span:hover {
+        transform: rotateY(calc(var(--i) * 60deg)) translateZ(380px) scale(1.05);
+    }
+}
+
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 768px) {
+    .slider-section {
+        height: 55vh;
+    }
+
+    .slider1 {
+        width: 220px;
+        height: 140px;
+    }
+
+    .slider1 span {
+        transform: rotateY(calc(var(--i) * 60deg)) translateZ(240px);
+    }
+
+    .slider1 span:hover {
+        transform: rotateY(calc(var(--i) * 60deg)) translateZ(300px);
+    }
+
+    .slider1 span p {
+        font-size: 14px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 45px;
+        height: 45px;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 16px;
+    }
+}
+
+
+/* ---------- SMALL MOBILE ---------- */
+@media (max-width: 450px) {
+    .slider-section {
+        height: 50vh;
+    }
+
+    .slider1 {
+        width: 170px;
+        height: 110px;
+    }
+
+    .slider1 span {
+        transform: rotateY(calc(var(--i) * 60deg)) translateZ(180px);
+    }
+
+    .slider1 span:hover {
+        transform: rotateY(calc(var(--i) * 60deg)) translateZ(230px);
+    }
+
+    .slider1 span img {
+        border-radius: 12px;
+    }
+
+    .slider1 span p {
+        font-size: 12px;
+        margin-top: 5px;
+    }
+}
+
+
+/* =========================================================
+   SWIPER ARROWS
+========================================================= */
+.swiper-button-next,
+.swiper-button-prev {
+    width: 55px;
+    height: 55px;
+
+    background: rgba(0, 0, 0, 0.55);
+    border: 2px solid rgba(127, 82, 10, 0.211);
+    border-radius: 50%;
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 0 15px rgba(212, 175, 55, 0.25),
+        0 5px 15px rgba(0, 0, 0, 0.4);
+
+    transition: all 0.35s ease;
+}
+
+/* ICON */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px;
+    font-weight: bold;
+    color: gold;
+
+    transition: all 0.35s ease;
+}
+
+/* HOVER */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: rgba(212, 175, 55, 0.15);
+    border-color: rgb(160, 139, 21);
+
+    transform: scale(1.12);
+
+    box-shadow:
+        0 0 25px rgba(212, 175, 55, 0.6),
+        0 0 50px rgba(212, 175, 55, 0.3),
+        0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.swiper-button-next:hover::after,
+.swiper-button-prev:hover::after {
+    color: #fff;
+
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.9),
+        0 0 20px rgba(87, 69, 11, 0.9);
+}
